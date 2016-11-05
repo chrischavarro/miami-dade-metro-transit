@@ -5,8 +5,8 @@ class HomeController < ApplicationController
 
 	def search
 		p params
-		origin = params[:origin]
-		destination = params[:destination]
+		@origin = params[:origin]
+		@destination = params[:destination]
 		render('search_results')
 	end
 end
