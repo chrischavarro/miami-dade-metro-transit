@@ -31,11 +31,12 @@ setInterval(function(){
 }, 6500);
 
 
-var places_autocomplete;
-function initMap() {
-	var input = /** @type {!HTMLInputElement} */(
-	    document.getElementById('pac-input'));
-	if (input) {
-		places_autocomplete = new google.maps.places.Autocomplete(input);
-	}
+var map;
+function initMap(origin) {
+	$('#loading_spinner').hide();
+	map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 14,
+      center: new google.maps.LatLng(origin.latitude, origin.longitude),
+      mapTypeId: 'terrain'
+    });
 }	

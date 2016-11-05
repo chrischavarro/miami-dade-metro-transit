@@ -11,7 +11,7 @@
 	<div class="logo">
 		<img src="assets/logo.png">
 	</div>
-
+	
 	<div class="content">
 		<div class="container">
 			<div class='lets_get_movin' >
@@ -20,6 +20,9 @@
 		    <hr>
 		    <div class="loading" id="loading_spinner">
 		    	<%= image_tag'loading.gif'%>
+		    </div>
+		    <div id="map">
+		    	
 		    </div>
 			<%= react_component("HelloWorldApp", props: @hello_world_props, prerender: false) %>
 		</div>
