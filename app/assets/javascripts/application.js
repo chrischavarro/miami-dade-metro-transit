@@ -67,7 +67,7 @@ function initMap(origin, bus_data) {
 	        	marker: marker
 	        };
 	    });
-	    setInterval(do_update_map, 500);
+	    setInterval(do_update_map, 100);
 	}, 500);
 }	
 
