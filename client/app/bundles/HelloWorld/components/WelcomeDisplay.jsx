@@ -76,7 +76,6 @@ export default class WelcomeDisplay extends React.Component {
     const { name } = this.props;
     return (
       <div>
-        <hr />
         <div  id="locationform" style={style}>
           <input className="full where_are_you_going" placeholder="Enter your destination" id="pac-input" onKeyPress={this.onInputKeypress.bind(this)}/>
           <button className="submit_search blue big_btn" id="search_submit" onClick={this.onSearchSubmit.bind(this)}>Search</button>
