@@ -6,21 +6,23 @@
 
 
 <div class="head">Metro Movin'</div>
+<div class="wrapper">
 
-<div class="logo">
-	<img src="assets/logo.png">
-</div>
+	<div class="logo">
+		<img src="assets/logo.png">
+	</div>
 
-<div class="content">
-	<div class="container">
-		<div class='lets_get_movin' >
-	          Let's get you movin'
-	    </div>
-	    <hr />
-	    <div class="loading" id="loading_spinner">
-	    	<%= image_tag'loading.gif'%>
-	    </div>
-		<%= react_component("HelloWorldApp", props: @hello_world_props, prerender: false) %>
+	<div class="content">
+		<div class="container">
+			<div class='lets_get_movin' >
+		          Let's get you movin'
+		    </div>
+		    <hr>
+		    <div class="loading" id="loading_spinner">
+		    	<%= image_tag'loading.gif'%>
+		    </div>
+			<%= react_component("HelloWorldApp", props: @hello_world_props, prerender: false) %>
+		</div>
 	</div>
 </div>
 
