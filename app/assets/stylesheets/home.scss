@@ -1,6 +1,14 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
 .hiddenInput {
 	display: none;
+}
+
+.head{
+	text-align:center;
+	padding:20px 0; margin: 0 0 30px;
+	font-weight:600; font-size:25px; font-family:'gotham';
+	background-color:rgba(black, 0.5); color:white;
 }
