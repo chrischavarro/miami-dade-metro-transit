@@ -34,9 +34,12 @@ setInterval(function(){
 var map;
 function initMap(origin) {
 	$('#loading_spinner').hide();
-	map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 14,
-      center: new google.maps.LatLng(origin.latitude, origin.longitude),
-      mapTypeId: 'terrain'
-    });
+	$('#map').addClass('show');
+	setTimeout(function(){	
+		map = new google.maps.Map(document.getElementById('map'), {
+	      zoom: 14,
+	      center: new google.maps.LatLng(origin.latitude, origin.longitude),
+	      mapTypeId: 'terrain'
+	    });
+    }, 500);
 }	
