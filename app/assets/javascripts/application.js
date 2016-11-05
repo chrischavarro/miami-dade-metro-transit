@@ -17,9 +17,11 @@
 //= require tether
 //= require bootstrap-sprockets
 //= require_tree .
-
+var places_autocomplete;
 function initMap() {
 	var input = /** @type {!HTMLInputElement} */(
 	    document.getElementById('pac-input'));
-	var autocomplete = new google.maps.places.Autocomplete(input);
+	if (input) {
+		places_autocomplete = new google.maps.places.Autocomplete(input);
+	}
 }	

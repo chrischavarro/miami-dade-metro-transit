@@ -43,8 +43,16 @@ export default class WelcomeDisplay extends React.Component {
   }
 
   onSearchSubmit() {
+    var places_data = places_autocomplete.getPlace();
+    if (!places_data) {
+      return;
+    }
     var search_query = $('#pac-input').val();
-    location.replace('/search?origin' + this.state.location);
+    var user_coords = this.state.location.coords.latitude + ',' + this.state.location.coords.longitude;
+    var dest_coords = places_autocomplete.getPlace().geometry.location.lat() + ',' + places_autocomplete.getPlace().geometry.location.lng();
+    console.log("Origin coords", user_coords);
+    console.log("Dest coords", dest_coords);
+    location.replace('/search?origin=' + user_coords +'&destination=' + dest_coords);
   }
 
   render() {
@@ -67,7 +75,7 @@ export default class WelcomeDisplay extends React.Component {
         <hr />
         <div  id="locationform" style={style}>
           <input className="where_are_you_going" id="pac-input" onKeyPress={this.onInputKeypress.bind(this)}/>
-          <button className="submit_search" id="search_submit" onClick={this.onSearchSubmit}>Search</button>
+          <button className="submit_search" id="search_submit" onClick={this.onSearchSubmit.bind(this)}>Search</button>
         </div>
       </div> 
     );
