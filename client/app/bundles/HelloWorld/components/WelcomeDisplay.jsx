@@ -4,7 +4,7 @@
 import React, { PropTypes } from 'react';
 
 // Simple example of a React "dumb" component
-export default class HelloWorldWidget extends React.Component {
+export default class WelcomeDisplay extends React.Component {
   static propTypes = {
     // If you have lots of data or action properties, you should consider grouping them by
     // passing two properties: "data" and "actions".
@@ -13,9 +13,7 @@ export default class HelloWorldWidget extends React.Component {
   };
 
   // React will automatically provide us with the event `e`
-  handleChange(e) {
-    const name = e.target.value;
-    this.props.updateName(name);
+  handleChange() {
   }
 
   render() {
@@ -26,16 +24,7 @@ export default class HelloWorldWidget extends React.Component {
           Hello, {name}!
         </h3>
         <hr />
-        <form className="form-horizontal">
-          <label>
-            Say hello to:
-          </label>
-          <input
-            type="text"
-            value={name}
-            onChange={e => this.handleChange(e)}
-          />
-        </form>
+        <input className="hiddenInput"/>
       </div>
     );
   }

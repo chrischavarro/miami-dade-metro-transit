@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import HelloWorldWidget from '../components/HelloWorldWidget';
+import WelcomeDisplay from '../components/WelcomeDisplay';
 
 // Simple example of a React "smart" component
 export default class HelloWorld extends React.Component {
@@ -22,7 +22,7 @@ export default class HelloWorld extends React.Component {
   render() {
     return (
       <div>
-        <HelloWorldWidget name={this.state.name} updateName={e => this.updateName(e)} />
+        <WelcomeDisplay name={this.state.name} updateName={e => this.updateName(e)} />
       </div>
     );
   }
