@@ -27,8 +27,10 @@ export default class WelcomeDisplay extends React.Component {
     navigator.geolocation.getCurrentPosition(this.onGetLocation.bind(this));
   }
 
-  onInputKeypress() {
-
+  onInputKeypress(event) {
+    if(event.key == 'Enter'){
+      this.onSearchSubmit();
+    }
   }
 
   onGetLocation(location, error) {
@@ -41,8 +43,8 @@ export default class WelcomeDisplay extends React.Component {
   }
 
   onSearchSubmit() {
-    var search_query = $('#searchInput').val();
-    console.log(search_query);
+    var search_query = $('#pac-input').val();
+    location.replace('/search?origin' + this.state.location);
   }
 
   render() {
@@ -64,7 +66,7 @@ export default class WelcomeDisplay extends React.Component {
       <div>
         <hr />
         <div  id="locationform" style={style}>
-          <input className="where_are_you_going" id="searchInput" onKeyPress={this.onInputKeypress}/>
+          <input className="where_are_you_going" id="pac-input" onKeyPress={this.onInputKeypress.bind(this)}/>
           <button className="submit_search" id="search_submit" onClick={this.onSearchSubmit}>Search</button>
         </div>
       </div> 
