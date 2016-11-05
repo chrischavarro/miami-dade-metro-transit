@@ -28,6 +28,8 @@ export default class WelcomeDisplay extends React.Component {
 
   onGetBusData(data) {
     console.log(data);
+    global_location = this.state.location.coords;
+    console.log("COORDS", global_location)
     initMap(this.state.location.coords, data.bus_data);
   }
 
