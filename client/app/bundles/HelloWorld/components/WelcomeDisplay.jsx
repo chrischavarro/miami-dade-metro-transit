@@ -27,12 +27,22 @@ export default class WelcomeDisplay extends React.Component {
     navigator.geolocation.getCurrentPosition(this.onGetLocation.bind(this));
   }
 
+  onInputKeypress() {
+
+  }
+
   onGetLocation(location, error) {
+    $('#loading_spinner').hide();
     console.log(location);
     this.setState({
       should_show: true,
       location: location 
     });
+  }
+
+  onSearchSubmit() {
+    var search_query = $('#searchInput').val();
+    console.log(search_query);
   }
 
   render() {
@@ -51,14 +61,11 @@ export default class WelcomeDisplay extends React.Component {
     }
     const { name } = this.props;
     return (
-      <div className="container">
-        <div className='lets_get_movin' >
-          Let's get you movin!
-        </div>
+      <div>
         <hr />
         <div  id="locationform" style={style}>
-          <input className=" where_are_you_going" />
-          <button className="submit_search" id="search_submit">Search</button>
+          <input className="where_are_you_going" id="searchInput" onKeyPress={this.onInputKeypress}/>
+          <button className="submit_search" id="search_submit" onClick={this.onSearchSubmit}>Search</button>
         </div>
       </div> 
     );
