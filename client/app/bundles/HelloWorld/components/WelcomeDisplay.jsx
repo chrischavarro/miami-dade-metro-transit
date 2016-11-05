@@ -30,7 +30,7 @@ export default class WelcomeDisplay extends React.Component {
   onGetLocation(location, error) {
     console.log(location);
     this.setState({
-      should_show: false,
+      should_show: true,
       location: location 
     });
   }
@@ -43,6 +43,7 @@ export default class WelcomeDisplay extends React.Component {
     }
     else {
       var style = {
+        display: 'block'
       };
     }
     if (!this.state.location) {
@@ -51,12 +52,15 @@ export default class WelcomeDisplay extends React.Component {
     const { name } = this.props;
     return (
       <div className="container">
-        <h3>
-          Hello, {name}!
-        </h3>
+        <div className='lets_get_movin' >
+          Let's get you movin!
+        </div>
         <hr />
-        <input className="hiddenInput" style={style} id="locationInput"/>
-      </div>
+        <div  id="locationform" style={style}>
+          <input className=" where_are_you_going" />
+          <button className="submit_search" id="search_submit">Search</button>
+        </div>
+      </div> 
     );
   }
 }
