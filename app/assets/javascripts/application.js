@@ -36,16 +36,21 @@ function initMap(origin, bus_data) {
 	$('#loading_spinner').hide();
 	var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
 	map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 10,
+      zoom: 12,
       center: new google.maps.LatLng(origin.latitude, origin.longitude),
       mapTypeId: 'terrain'
+    });
+    var person_latLng = new google.maps.LatLng(origin.latitude ,origin.longitude);
+    var marker = new google.maps.Marker({
+    	position: person_latLng,
+    	map: map
     });
     bus_data.forEach(function(bus) {
         var latLng = new google.maps.LatLng(bus.Latitude ,bus.Longitude);
         var marker = new google.maps.Marker({
         	position: latLng,
         	map: map,
-        	icon: iconBase + 'parking_lot_maps.png'
+        	icon: iconBase + 'bus_maps.png'
         });
     });
 }	
