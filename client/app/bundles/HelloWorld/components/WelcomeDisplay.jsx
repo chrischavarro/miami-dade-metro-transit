@@ -11,12 +11,43 @@ export default class WelcomeDisplay extends React.Component {
     updateName: PropTypes.func.isRequired,
     name: PropTypes.string.isRequired,
   };
+  constructor(props) {
+    super(props);
+    this.state = {
+      should_show: false,
+      location: false
+    };
+  }
 
   // React will automatically provide us with the event `e`
   handleChange() {
   }
 
+  getGPSLocation() {
+    navigator.geolocation.getCurrentPosition(this.onGetLocation.bind(this));
+  }
+
+  onGetLocation(location, error) {
+    console.log(location);
+    this.setState({
+      should_show: false,
+      location: location 
+    });
+  }
+
   render() {
+    if (!this.state.should_show) {
+      var style = {
+        display: 'none'
+      };
+    }
+    else {
+      var style = {
+      };
+    }
+    if (!this.state.location) {
+      this.getGPSLocation();
+    }
     const { name } = this.props;
     return (
       <div className="container">
@@ -24,7 +55,7 @@ export default class WelcomeDisplay extends React.Component {
           Hello, {name}!
         </h3>
         <hr />
-        <input className="hiddenInput"/>
+        <input className="hiddenInput" style={style} id="locationInput"/>
       </div>
     );
   }
