@@ -17,3 +17,17 @@
 //= require tether
 //= require bootstrap-sprockets
 //= require_tree .
+
+
+
+var homeSlide = [1,2,3,4];
+
+	var hbg = 0;
+
+	setInterval(function(){
+		if( hbg >= homeSlide.length ){ hbg = 0; }
+		setTimeout(function(){
+			$('body').css("background-image", "url(/assets/bg"+homeSlide[hbg]+".jpg)");
+			hbg+=1;
+		}, 1000);
+	}, 6500);

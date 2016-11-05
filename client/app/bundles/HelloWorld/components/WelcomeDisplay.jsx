@@ -38,12 +38,16 @@ export default class WelcomeDisplay extends React.Component {
   render() {
     if (!this.state.should_show) {
       var style = {
-        display: 'none'
+        height: '0px',
+        transition: '0.5s',
+        opacity: 0
       };
     }
     else {
       var style = {
-        display: 'block'
+        height: 'auto',
+        transition: '0.5s',
+        opacity: 1
       };
     }
     if (!this.state.location) {
@@ -53,12 +57,12 @@ export default class WelcomeDisplay extends React.Component {
     return (
       <div className="container">
         <div className='lets_get_movin' >
-          Let's get you movin!
+          Let's get you movin'
         </div>
         <hr />
-        <div  id="locationform" style={style}>
-          <input className=" where_are_you_going" />
-          <button className="submit_search" id="search_submit">Search</button>
+        <div id="locationform" style={style}>
+          <input className="full where_are_you_going" placeholder="Enter your destination" /><br/>
+          <button className="submit_search blue big_btn" id="search_submit">Search</button>
         </div>
       </div> 
     );
