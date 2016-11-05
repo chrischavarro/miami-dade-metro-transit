@@ -32,11 +32,20 @@ setInterval(function(){
 
 
 var map;
-function initMap(origin) {
+function initMap(origin, bus_data) {
 	$('#loading_spinner').hide();
+	var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
 	map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 14,
+      zoom: 10,
       center: new google.maps.LatLng(origin.latitude, origin.longitude),
       mapTypeId: 'terrain'
+    });
+    bus_data.forEach(function(bus) {
+        var latLng = new google.maps.LatLng(bus.Latitude ,bus.Longitude);
+        var marker = new google.maps.Marker({
+        	position: latLng,
+        	map: map,
+        	icon: iconBase + 'parking_lot_maps.png'
+        });
     });
 }	
