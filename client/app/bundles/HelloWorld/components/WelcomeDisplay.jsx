@@ -33,6 +33,12 @@ export default class WelcomeDisplay extends React.Component {
     }
   }
 
+  onGetBusData(data) {
+    // console.log(data)
+    // Passes data to initMap function in application.js
+    initMap(this.state.location.coords, data.bus_data);
+  }
+
   onGetLocation(location, error) {
     $('#loading_spinner').hide();
     console.log(location);
@@ -40,6 +46,7 @@ export default class WelcomeDisplay extends React.Component {
       should_show: true,
       location: location 
     });
+    $.get('/search?origin' + location.coords.lattitude + ',' + location.coords.longitude, this.onGetBusData.bind(this))
   }
 
   onSearchSubmit() {
@@ -76,11 +83,13 @@ export default class WelcomeDisplay extends React.Component {
     const { name } = this.props;
     return (
       <div>
-        <div  id="locationform" style={style}>
-          <input className="full where_are_you_going" placeholder="Enter your destination" id="pac-input" onKeyPress={this.onInputKeypress.bind(this)}/>
-          <button className="submit_search blue big_btn" id="search_submit" onClick={this.onSearchSubmit.bind(this)}>Search</button>
-        </div>
+
       </div> 
     );
   }
 }
+// Input field to get coordinates
+//         <div  id="locationform" style={style}>
+          // <input className="full where_are_you_going" placeholder="Enter your destination" id="pac-input" onKeyPress={this.onInputKeypress.bind(this)}/>
+          // <button className="submit_search blue big_btn" id="search_submit" onClick={this.onSearchSubmit.bind(this)}>Search</button>
+        // </div>

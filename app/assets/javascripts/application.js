@@ -31,11 +31,28 @@ setInterval(function(){
 }, 6500);
 
 
+var map;
+
+
 var places_autocomplete;
-function initMap() {
-	var input = /** @type {!HTMLInputElement} */(
-	    document.getElementById('pac-input'));
-	if (input) {
-		places_autocomplete = new google.maps.places.Autocomplete(input);
-	}
+function initMap(origin, bus_data) {
+	var iconBase = 'http://maps.google.com/mapfiles/kml/shapes/';
+	var person_latLng = new google.maps.LatLng(origin.latitude, origin.longitude)
+	map = new google.maps.Map(document.getElementById('map'), {
+    	zoom: 14,
+    	center: new google.maps.LatLng(origin.latitude, origin.longitude),
+    	mapTypeId: 'terrain'
+   });
+	var marker = new google.maps.Marker({
+		position: person_latLng,
+		map: map
+	})
+	bus_data.forEach(function(bus) {
+		var latLng = new google.maps.LatLng(bus.Latitude, bus.Longitude);
+		var marker = new google.maps.Marker({
+			position: latLng,
+			map: map,
+			icon: iconBase + 'bus_maps.png'
+		})
+	})
 }	
