@@ -75,22 +75,11 @@ export default class WelcomeDisplay extends React.Component {
     }
     const { name } = this.props;
     return (
-<<<<<<< HEAD
-      <div className="container">
-        <div className='lets_get_movin' >
-          Let's get you movin'
-        </div>
-        <hr />
-        <div id="locationform" style={style}>
-          <input className="full where_are_you_going" placeholder="Enter your destination" /><br/>
-          <button className="submit_search blue big_btn" id="search_submit">Search</button>
-=======
       <div>
         <hr />
         <div  id="locationform" style={style}>
-          <input className="where_are_you_going" id="pac-input" onKeyPress={this.onInputKeypress.bind(this)}/>
-          <button className="submit_search" id="search_submit" onClick={this.onSearchSubmit.bind(this)}>Search</button>
->>>>>>> 5dc6d069b0117a316750d04498951f396f88b58b
+          <input className="full where_are_you_going" placeholder="Enter your destination" id="pac-input" onKeyPress={this.onInputKeypress.bind(this)}/>
+          <button className="submit_search blue big_btn" id="search_submit" onClick={this.onSearchSubmit.bind(this)}>Search</button>
         </div>
       </div> 
     );

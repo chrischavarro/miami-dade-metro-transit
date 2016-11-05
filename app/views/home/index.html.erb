@@ -12,7 +12,15 @@
 </div>
 
 <div class="content">
-	<%= react_component("HelloWorldApp", props: @hello_world_props, prerender: false) %>
+	<div class="container">
+		<div class='lets_get_movin' >
+	          Let's get you movin'
+	    </div>
+	    <div class="loading" id="loading_spinner">
+	    	<%= image_tag'loading.gif', :width => '200' %>
+	    </div>
+		<%= react_component("HelloWorldApp", props: @hello_world_props, prerender: false) %>
+	</div>
 </div>
 
 
